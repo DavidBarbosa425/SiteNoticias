@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jornal do bairro</title>
+    <link rel="stylesheet" href="assets/CSS/style.css">
+</head>
+<body>
+    <header>
+        <h1>Jornal da Sabara</h1>
+        <h2>Notícias sempre em primeira mão!</h2>
+    </header>
+
+    <section>
+        <article class="news">
+            <h3>Escreva sua notícia</h3>
+            <br>
+            <p><input type="text" class="titulo"> </p>
+            <p><button class="btnTitulo">Inserir Título</button></p>
+           <br>
+            <p><textarea rows="10" cols="40" maxlength="500" class="conteudo">Escreva o conteúdo da notícia aqui e clique em inserir conteúdo.</textarea></p>
+           <p><button class="btnConteudo">Inserir Conteúdo</button></p>
+
+        </article>
+        <article class="news">
+            <h1 class="insercaoTitulo"></h1>
+            <br>
+            <p class="insercaoConteudo"></p>
+
+        </article>
+    </section>
+
+    <footer>
+        <p id="hour">00:00:00</p>
+    </footer>
+
+    <script src="assets/JS/main.JS"></script>
+
+</body>
+</html>
