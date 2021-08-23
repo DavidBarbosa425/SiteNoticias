@@ -17,20 +17,52 @@ header {
     box-shadow: 5px 5px 5px #7c7070;
 }
 
+header > a {
+    margin: 10px;
+    padding: 6px;
+    text-decoration: none;
+    color:black;
+}
+header >a:hover {
+    color: white;
+    background-color:#806f6f ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #867b7b;
+    
+}
+
 header > h1 {
     text-align: center;
-    margin: 10px;
-    padding: 10px;
+    margin: 10px -30px 10px -30px;
+    padding: 10px 0px 10px 0px;;
+    background-color: rgb(43, 37, 37);
+    color: white;
+    box-shadow: 5px 5px 5px #1b1b1b;
+    font-size: 5em;
     
 }
 
 header >  h2{
     text-align: center;
-    margin: 10px;
+    margin: 10px -30px 10px -30px;
     padding: 10px;
+    background-color: rgb(43, 37, 37);
+    color: white;
+    
+    box-shadow: 5px 5px 5px #1b1b1b;
 }
 
+
 .news {
+    width: 100%;
+    margin: 50px 0px;
+    padding: 30px;
+    background-color: #a5a0a0;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #867b7b;
+}
+
+.insertNews {
     width: 100%;
     margin: 50px 0px;
     padding: 30px;
@@ -43,19 +75,34 @@ header >  h2{
     border-radius: 5px;
 }
 
+.btnTitulo:hover{
+    background-color: #7a5555;
+    color: white;
+}
+
 .insercaoTitulo {
     margin: 10px 0px 40px 10px;
-    background-color: white;
+    padding: 10px;
+    background-color: rgb(102, 81, 81);
+    color: white;
+    box-shadow: 5px 5px 5px #1b1b1b;
     border-radius: 10px;
-    box-shadow: 5px 5px 5px #867b7b;
+    font-size: 2em;
 }
 
 .btnConteudo{
     border-radius: 5px;
+    
+}
+
+.btnConteudo:hover{
+    background-color: #7a5555;
+    color: white;
 }
 
 .insercaoConteudo{
     margin: 10px 0px 10px 10px;
+    padding: 10px;
     background-color: white;
     border-radius: 5px;
     box-shadow: 5px 5px 5px #867b7b;
@@ -63,6 +110,18 @@ header >  h2{
 
 .btnApagar {
     border-radius: 5px;
+}
+
+.btnApagar:hover{
+    background-color: #490000;
+    color: white;
+}
+
+.btnApagarNoticias {
+    background-color: #806f6f;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px #867b7b;
+    margin: 0px 0px 0px 32px;
 }
 
 

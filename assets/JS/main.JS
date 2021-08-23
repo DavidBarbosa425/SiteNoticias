@@ -4,15 +4,20 @@ let btnTituloEl = document.querySelector('.btnTitulo');
 let conteudoEl = document.querySelector('.conteudo');
 let btnConteudoEl = document.querySelector('.btnConteudo');
 let section1El = document.querySelector('.section1')
+let section2El = document.querySelector('.section2')
 let news = document.querySelector('.news')
-
+let insertNewsEl = document.querySelector('.insertNews')
 let insercaoConteudoEl = document.querySelector('.insercaoConteudo')
+let btnApagarNoticiasEl = document.querySelector('.btnApagarNoticias')
 
 
+inputTextEl.focus()
+conteudoEl.focus()
+    
 function inicializaFuncoes() {
 dateTime();
 insereTituloConteudo();
-
+createButtonDelete()
 };
 
 function dateTime() {
@@ -36,31 +41,32 @@ function insereTituloConteudo() {
 
         if (el.classList.contains('btnConteudo')) {
         cvalue = conteudoEl.value
+            
         createArticle();
-            
-            
+
+       
         }
         if (el.classList.contains('btnApagar')) {
-            tvalue.innerHTML = ''
-            cvalue.innerHTML = ''
+            eraseMatter()
+            
         }
         
     })
 };
 
-function createButtonDelete(article){
+function createButtonDelete(){
     let btnApagar = document.createElement('button')
-    btnApagar.innerText = 'Apagar notícia';
+    btnApagar.innerText = 'Apagar notícias';
     btnApagar.classList.add('btnApagar')
-    article.appendChild(btnApagar)
+    btnApagarNoticiasEl.appendChild(btnApagar)
     
     
 }
 
 function createArticle() {
-    let article = document.createElement('article')
-    article.classList.add('news')
-    section1El.appendChild(article)
+    article = document.createElement('article')
+    article.classList.add('insertNews')
+    section2El.appendChild(article)
     
     createH1(article);
     
@@ -85,12 +91,13 @@ function createP(article) {
     p.classList.add('insercaoConteudo')
     article.appendChild(p)
     p.innerText = cvalue
-    createButtonDelete(article)
+    
 
 }
 
 function eraseMatter() {
     
+    document.body.removeChild(section2El)
     
 }
 
