@@ -1,5 +1,5 @@
     let hourEl = document.querySelector('#hour');
-    let inputTextEl = document.querySelector('.inputText');
+    let inputTituloEl = document.querySelector('.inputTitulo');
     let btnTituloEl = document.querySelector('.btnTitulo');
     let conteudoEl = document.querySelector('.conteudo');
     let btnConteudoEl = document.querySelector('.btnConteudo');
@@ -11,13 +11,12 @@
     let btnApagarNoticiasEl = document.querySelector('.btnApagarNoticias')
 
 
-    inputTextEl.focus()
+    inputTituloEl.focus()
     conteudoEl.focus()
         
     function inicializaFuncoes() {
     dateTime();
-    insereTituloConteudo();
-    addNewsSaves();
+    addSavedNews();
 
 
     };
@@ -30,22 +29,37 @@
     }
 
 
+    
 
 
-
-        document.addEventListener('click', (e)=>{
-            let el = e.target;
+        btnTituloEl.addEventListener('click', (e)=>{
             
-            if (el.classList.contains('btnTitulo')){
-            tvalue = inputTextEl.value}
-            
-
-            if (el.classList.contains('btnConteudo')) {
-            cvalue = conteudoEl.value
-            insereTituloConteudo(tvalue, cvalue);
-            } 
-        
+            if (!inputTituloEl.value) return;
+            tvalue = inputTituloEl.value
+            conteudoEl.focus()
         })
+
+        btnConteudoEl.addEventListener('click', (e) =>{
+            if(!conteudoEl.value) return;
+            cvalue = conteudoEl.value;
+            insereTituloConteudo(tvalue, cvalue);
+            
+        })
+
+        // conteudoEl.addEventListener('keypress', (e) =>{
+        //     if(e.keyCode === 13) 
+        //     cvalue = conteudoEl.value;
+        //     insereTituloConteudo(tvalue, cvalue);
+        //     cleanEntries()
+        // })
+
+        function cleanEntries(){
+            inputTituloEl.value = '';
+            conteudoEl.value = '';
+            inputTituloEl.focus()
+            
+        }
+
 
         function insereTituloConteudo(tvalue, cvalue) {
             article = createArticle();
@@ -57,8 +71,9 @@
             btnApagar = createButtonDelete()
             article.appendChild(btnApagar)
 
-            h1.innerHTML = tvalue;
-            p.innerHTML = cvalue;
+            h1.innerText = tvalue;
+            p.innerText = cvalue;
+            cleanEntries()
             saveNews();
         
         }
@@ -67,7 +82,7 @@
         let el = e.target;
         if (el.classList.contains('btnApagar')){
             el.parentElement.remove();
-            //saveNews();
+            saveNews();
         }
     })
 
@@ -93,6 +108,7 @@
         let btnApagar = document.createElement('button')
         btnApagar.innerText = 'Apagar notícia';
         btnApagar.classList.add('btnApagar')
+        btnApagar.setAttribute('title','Apagar conteúdo da matéria e título')
         return btnApagar;
        
     }
@@ -109,55 +125,47 @@
 
 
     function saveNews(){
-        let titles = section2El.querySelectorAll('.insercaoTitulo')
-        let texts = section2El.querySelectorAll('.insercaoConteudo')
-        console.log()
-        console.log(texts)
-        let listTitles = [];
-        for (let title of titles){
-            
-            let newTitle = title.innerText;
-            newTitle = newTitle.trim();
-            
-            listTitles.push(newTitle)
-            
-            
-        }
-            const titlesJSON = JSON.stringify(listTitles)
-            console.log(titlesJSON)
-            localStorage.setItem('titles', titlesJSON)
+        const h1sTitles = section2El.querySelectorAll('.insercaoTitulo')
 
-             let listTexts = [];
-             for (let text of texts){
+           const arrayAllTitles = [];
+           for (let h1Title of h1sTitles)
+                {
+                let h1TitleText = h1Title.innerText.trim();
+                    arrayAllTitles.push(h1TitleText)
+                } 
+            
+         
+                const h1sTitlesJSON = JSON.stringify(arrayAllTitles)
+                localStorage.setItem('h1sTitles', h1sTitlesJSON)
+
+        const psMatters = section2El.querySelectorAll('.insercaoConteudo')
+
+            const arrayAllMatters = [];
+            for (let pMatter of psMatters){
                 
-                 let newText = text.innerText;
-                 newText = newText.trim();
+                 let pMatterText = pMatter.innerText.trim();
+                 arrayAllMatters.push(pMatterText)
                 
-                 listTexts.push(newText)
-                
-                
-             }
-                 const textsJSON = JSON.stringify(listTexts)
-                 console.log(textsJSON)
-                 localStorage.setItem('texts', textsJSON)
+               }
+                const psMattersJSON = JSON.stringify(arrayAllMatters)
+                localStorage.setItem('psMatters', psMattersJSON)
         
+     }
+
+    function addSavedNews(){
+             const h1sTitles = localStorage.getItem('h1sTitles');
+             const arrayAllTitles = JSON.parse(h1sTitles);
+
+             const psMatters = localStorage.getItem('psMatters');
+             const arrayAllMatters = JSON.parse(psMatters);
+
+                 for (let i= 0;i < arrayAllTitles.length; i++)
+                 {
+                     insereTituloConteudo(arrayAllTitles[i],arrayAllMatters[i]);
+                 }
+
     }
-
-        function addNewsSaves(){
-            let titles = localStorage.getItem('titles');
-            let listTitles = JSON.parse(titles);
-
-            let texts = localStorage.getItem('texts');
-            let listTexts = JSON.parse(texts);
-
-            for (title of listTitles){
-                insereTituloConteudo(title)
-            };
-            for (text of listTexts){};
- 
-           
-        }
+        
     
-
     inicializaFuncoes();
 
