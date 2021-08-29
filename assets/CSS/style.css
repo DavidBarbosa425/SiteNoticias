@@ -31,28 +31,49 @@ header >a:hover {
     background-color:#806f6f ;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #867b7b;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     
 }
 
 header > h1 {
     text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     margin: 10px -30px 10px -30px;
     padding: 10px 0px 10px 0px;;
     background-color: rgb(43, 37, 37);
     color: white;
     box-shadow: 5px 5px 5px #1b1b1b;
-    font-size: 5em;
-    
+    font-size: 5em;  
+}
+header >h1:hover{
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
+    margin: 10px -30px 10px -30px;
+    padding: 10px 0px 10px 0px;;
+    background-color: rgb(43, 37, 37);
+    color: white;
+    box-shadow: 5px 5px 5px #1b1b1b;
+    font-size: 5.5em; 
 }
 
 header >  h2{
     text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     margin: 10px -30px 10px -30px;
     padding: 10px;
     background-color: rgb(43, 37, 37);
     color: white;
-    
     box-shadow: 5px 5px 5px #1b1b1b;
+}
+header >h2:hover{
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
+    margin: 10px -30px 10px -30px;
+    padding: 10px;
+    background-color: rgb(43, 37, 37);
+    color: white;
+    box-shadow: 5px 5px 5px #1b1b1b;
+    font-size: 2em;
 }
 
 .attention:hover{
@@ -60,6 +81,8 @@ header >  h2{
     background-color:rgb(43, 37, 37); ;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #1b1b1b;;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
+    font-size: 1.5em;
 }
 
 .news {
@@ -87,6 +110,7 @@ header >  h2{
 .btnTitulo:hover{
     background-color: #7a5555;
     color: white;
+    font-size: 1.2em;
 }
 
 .insercaoTitulo {
@@ -107,6 +131,7 @@ header >  h2{
 .btnConteudo:hover{
     background-color: #7a5555;
     color: white;
+    font-size: 1.2em;
 }
 
 .insercaoConteudo{
@@ -124,6 +149,7 @@ header >  h2{
 .btnApagar:hover{
     background-color: #490000;
     color: white;
+    font-size: 1.2em;
 }
 
 .btnApagarNoticias {
@@ -141,4 +167,10 @@ footer {
     background-color: #686565;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #494444;
+}
+
+#hour {
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 1px rgb(66, 64, 64);
 }
