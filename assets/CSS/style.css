@@ -4,29 +4,43 @@
     margin: 0px;
     padding: 0px;
 }
+body{
+    background-color: white; /*rgb(43, 37, 37);*/
 
-body {
+    
+}
+main {
     font-family: 'Roboto', sans-serif;
     font-size: 1em;
-    background-color: #a8a8a8;
+    background-color: white;/* #a8a8a8; */
+    min-width: 320px;
+    max-width: 1000px;
+    margin: 10px auto 0px auto;
+    padding: 10px 20px 0px 20px;
+    border-radius: 20px;
+    /*box-shadow: 0px 0px 10px black;*/
 }
 
 header {
-    width: 100%;
-    margin: auto;
-    padding: 30px;
+    margin:0px;
+    padding: 0px 0px 1px 0px;
     background-color: #8d8787;
-    border-radius: 20px;
     box-shadow: 5px 5px 5px #7c7070;
+    border-radius: 0px 0px 10px 10px;
 }
-
-header > a {
-    margin: 10px;
+nav {
+    margin: 15px;
+}
+nav >a {
+    background-color: #8d8787;
+    font-size: 1.7em;
+    margin: 8px;
     padding: 6px;
     text-decoration: none;
     color:black;
+    text-shadow: 3px 3px 3px rgba(255, 255, 255, 0.377);
 }
-header >a:hover {
+nav >a:hover {
     color: white;
     background-color:#806f6f ;
     border-radius: 20px;
@@ -36,20 +50,19 @@ header >a:hover {
 }
 
 header > h1 {
-    text-align: center;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
-    margin: 10px -30px 10px -30px;
+    margin: 0px auto 10px auto;
     padding: 10px 0px 10px 0px;;
     background-color: rgb(43, 37, 37);
     color: white;
+    text-align: center;
+    border-radius: 20px;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     box-shadow: 5px 5px 5px #1b1b1b;
     font-size: 5em;  
 }
 header >h1:hover{
     text-align: center;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
-    margin: 10px -30px 10px -30px;
-    padding: 10px 0px 10px 0px;;
     background-color: rgb(43, 37, 37);
     color: white;
     box-shadow: 5px 5px 5px #1b1b1b;
@@ -57,22 +70,27 @@ header >h1:hover{
 }
 
 header >  h2{
-    text-align: center;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
-    margin: 10px -30px 10px -30px;
+    margin: 0px;
     padding: 10px;
     background-color: rgb(43, 37, 37);
     color: white;
+    border-radius: 10px;
+    text-align: center;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     box-shadow: 5px 5px 5px #1b1b1b;
 }
-header >h2:hover{
-    text-align: center;
-    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
-    margin: 10px -30px 10px -30px;
-    padding: 10px;
-    background-color: rgb(43, 37, 37);
+
+.section1{
+    margin: 20px auto 20px auto;
+    
+}
+
+.attentionH2:hover {
     color: white;
-    box-shadow: 5px 5px 5px #1b1b1b;
+    background-color:rgb(43, 37, 37); ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #1b1b1b;;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     font-size: 2em;
 }
 
@@ -86,21 +104,22 @@ header >h2:hover{
 }
 
 .news {
-    width: 100%;
-    margin: 50px 0px;
-    padding: 30px;
+    margin: auto;
+    padding: 20px;
     background-color: #a5a0a0;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #867b7b;
 }
 
 .insertNews {
-    width: 100%;
-    margin: 50px 0px;
-    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding: 20px;
     background-color: #a5a0a0;
     border-radius: 20px;
     box-shadow: 5px 5px 5px #867b7b;
+    
 }
 
 .btnTitulo{
@@ -114,13 +133,17 @@ header >h2:hover{
 }
 
 .insercaoTitulo {
-    margin: 10px 0px 40px 10px;
+    margin: 10px auto 10px auto;
     padding: 10px;
     background-color: rgb(102, 81, 81);
     color: white;
     box-shadow: 5px 5px 5px #1b1b1b;
+    text-shadow: 5px 5px 5px black;
     border-radius: 10px;
     font-size: 2em;
+}
+.conteudo {
+    width: 100%;
 }
 
 .btnConteudo{
@@ -134,8 +157,9 @@ header >h2:hover{
     font-size: 1.2em;
 }
 
+
 .insercaoConteudo{
-    margin: 10px 0px 10px 10px;
+    margin: 10px auto 10px auto;
     padding: 10px;
     background-color: white;
     border-radius: 5px;
@@ -161,16 +185,25 @@ header >h2:hover{
 
 
 footer {
-    width: 100%;
-    margin: 50px 0px 0px 0px;
-    padding: 30px;
+    margin: auto;
+    padding: 20px;
     background-color: #686565;
-    border-radius: 20px;
-    box-shadow: 5px 5px 5px #494444;
+    box-shadow: 0px 0px 10px #494444;
+    border-radius: 10px;
 }
 
 #hour {
     text-align: center;
     font-size: 1.5em;
-    text-shadow: 1px 1px 1px rgb(66, 64, 64);
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.356);
+}
+
+#hour:hover{
+    text-align: center;
+    color: white;
+    background-color:rgb(43, 37, 37); ;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #1b1b1b;;
+    text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
+    font-size: 1.5em;
 }

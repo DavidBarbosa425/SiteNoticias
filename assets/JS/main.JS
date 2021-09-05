@@ -5,21 +5,15 @@
     let btnConteudoEl = document.querySelector('.btnConteudo');
     let section1El = document.querySelector('.section1')
     let section2El = document.querySelector('.section2')
-    let news = document.querySelector('.news')
-    let insertNewsEl = document.querySelector('.insertNews')
-    let insercaoConteudoEl = document.querySelector('.insercaoConteudo')
-    let btnApagarNoticiasEl = document.querySelector('.btnApagarNoticias')
-
-
-    inputTituloEl.focus()
-    conteudoEl.focus()
-        
+    
+   
     function inicializaFuncoes() {
     dateTime();
     addSavedNews();
-
-
+    horaTempoReal();
+   
     };
+
 
     function dateTime() {
         let date = new Date();
@@ -29,8 +23,10 @@
     }
 
 
+    function horaTempoReal() {
+        setInterval(dateTime, 1000)
+    }
     
-
 
         btnTituloEl.addEventListener('click', (e)=>{
             
@@ -40,11 +36,13 @@
         })
 
         btnConteudoEl.addEventListener('click', (e) =>{
+
             if(!conteudoEl.value) return;
             cvalue = conteudoEl.value;
             insereTituloConteudo(tvalue, cvalue);
             
         })
+
 
         // conteudoEl.addEventListener('keypress', (e) =>{
         //     if(e.keyCode === 13) 
@@ -52,6 +50,7 @@
         //     insereTituloConteudo(tvalue, cvalue);
         //     cleanEntries()
         // })
+
 
         function cleanEntries(){
             inputTituloEl.value = '';
@@ -78,6 +77,7 @@
         
         }
 
+
     document.addEventListener('click', (e) =>{
         let el = e.target;
         if (el.classList.contains('btnApagar')){
@@ -87,7 +87,6 @@
     })
 
     
-
     function createArticle() {
         article = document.createElement('article')
         article.classList.add('insertNews')
@@ -104,6 +103,7 @@
          
     }
 
+
     function createButtonDelete(){
         let btnApagar = document.createElement('button')
         btnApagar.innerText = 'Apagar notícia';
@@ -119,8 +119,7 @@
         let p = document.createElement('p')
         p.classList.add('insercaoConteudo')
         return p;
-        
-        
+               
     }
 
 
@@ -152,6 +151,7 @@
         
      }
 
+     
     function addSavedNews(){
              const h1sTitles = localStorage.getItem('h1sTitles');
              const arrayAllTitles = JSON.parse(h1sTitles);
