@@ -146,12 +146,36 @@ header >  h2{
     width: 100%;
 }
 
-.btnConteudo{
+.btnConteudo, .btnImg, .btnVideo{
     border-radius: 5px;
     
 }
 
-.btnConteudo:hover{
+.insercaoDivImg {
+    width: 560px;
+    height: 315px;
+    margin: 30px auto;
+   
+}
+
+.insercaoDivVideo {
+    width: 560px;
+    height: 315px;
+    margin: 30px auto;
+    border: 5px solid black;
+}
+
+
+
+.insercaoImg {
+    width: 560px;
+    height: 315px;
+    border: 5px solid black;
+    
+ 
+}
+
+.btnConteudo:hover, .btnImg:hover, .btnVideo:hover{
     background-color: #7a5555;
     color: white;
     font-size: 1.2em;
