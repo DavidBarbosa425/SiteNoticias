@@ -1,23 +1,27 @@
 let hourEl = document.querySelector('#hour');
-let inputTituloEl = document.querySelector('.inputTitulo');
-let btnTituloEl = document.querySelector('.btnTitulo');
-let conteudoEl = document.querySelector('.conteudo');
-let btnConteudoEl = document.querySelector('.btnConteudo');
-let section1El = document.querySelector('.section1')
-let section2El = document.querySelector('.section2')
+let inputTitleEl = document.querySelector('.inputTitle');
+let btnTitleEl = document.querySelector('.btnTitle');
+let newsEl = document.querySelector('.news');
+let btnNewsEl = document.querySelector('.btnNews');
+let containerInsertedNewsEl = document.querySelector('.containerInsertedNews')
 let inputImgEl = document.querySelector('.inputImg')
 let btnImgEl = document.querySelector('.btnImg')
 let inputVideoEl = document.querySelector('.inputVideo')
 let btnVideoEl = document.querySelector('.btnVideo')
 
-function inicializaFuncoes() {
+let tValue;
+let nValue;
+let imgValue;
+let videoValue;
 
-    dateTime();
+function initializeFunctions() {
+
+    formattedTimeDate();
     addSavedNews();
-    horaTempoReal();
+    startTimeDate();
 };
 
-function dateTime() {
+function formattedTimeDate() {
 
     let date = new Date();
     hourEl.innerHTML = date.toLocaleTimeString('pt-BR');
@@ -25,17 +29,17 @@ function dateTime() {
     hourEl.innerHTML += date.toLocaleDateString('pt-BR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 };
 
-function horaTempoReal() {
+function startTimeDate() {
     setInterval(() => {
-        dateTime();
+        formattedTimeDate();
     }, 1000)
 };
 
-btnTituloEl.addEventListener('click', (e)=> {
+btnTitleEl.addEventListener('click', (e)=> {
         
-    if (!inputTituloEl.value) return;
-        tvalue = inputTituloEl.value
-        conteudoEl.focus()
+    if (!inputTitleEl.value) return;
+        tValue = inputTitleEl.value
+        newsEl.focus()
 });
 
 btnImgEl.addEventListener('click', (e) => {
@@ -50,112 +54,110 @@ btnVideoEl.addEventListener('click', (e)=> {
         videoValue = inputVideoEl.value;
 });
 
-btnConteudoEl.addEventListener('click', (e) =>{
+btnNewsEl.addEventListener('click', (e) =>{
 
-    if(!conteudoEl.value) return;
-        cvalue = conteudoEl.value;
-        insereTituloConteudo(tvalue, cvalue, imgValue, videoValue);
+    if(!newsEl.value) return;
+        nValue = newsEl.value;
+        insertCompleteNews(tValue, nValue, imgValue, videoValue);
 });
 
-function cleanEntries(){
+function cleanInputs(){
 
-    inputTituloEl.value = '';
-    conteudoEl.value = '';
+    inputTitleEl.value = '';
+    newsEl.value = '';
     inputImgEl.value = '';
     inputVideoEl.value = '';
         
-    inputTituloEl.focus()
+    inputTitleEl.focus()
 };
 
-function insereTituloConteudo(tvalue, cvalue, imgValue, videoValue) {
+function insertCompleteNews(tValue, nValue, imgValue, videoValue) {
 
-    article = createArticle();
-    section2El.appendChild(article);
-    h1 = createH1();
+    let article = createArticle();
+    containerInsertedNewsEl.appendChild(article);
+    let h1 = createH1();
     article.appendChild(h1);
-    div = createDiv();
+    let div = createDiv();
     article.appendChild(div);
-    img = createImg();
+    let img = createImg();
     div.appendChild(img)
-    p = createP();
+    let p = createP();
     article.appendChild(p)
-    divVideo = createDivVideo();
+    let divVideo = createDivVideo();
     article.appendChild(divVideo)
-    btnApagar = createButtonDelete()
-    article.appendChild(btnApagar)
+    let buttonDelete = createButtonDelete()
+    article.appendChild(buttonDelete)
 
-    h1.innerText = tvalue;
+    h1.innerText = tValue;
     img.src = imgValue;
-    p.innerText = cvalue;
+    p.innerText = nValue;
     divVideo.innerHTML = videoValue
-    cleanEntries()
+    cleanInputs()
     saveNews();
 };
 
 document.addEventListener('click', (e) => {
 
     let el = e.target;
-    if (el.classList.contains('btnApagar')) {
+    if (el.classList.contains('btnDelete')) {
         el.parentElement.remove();
         saveNews();
     }
 });
 
-
 function createArticle() {
 
     article = document.createElement('article')
-    article.classList.add('insertNews')
+    article.classList.add('insertedNews')
     return article;  
 };
-
 
 function createH1() {
 
     let h1 = document.createElement('h1')
-    h1.classList.add('insercaoTitulo')
+    h1.classList.add('insertedTitle')
     return h1;
 };
 
 function createButtonDelete() {
 
-    let btnApagar = document.createElement('button')
-    btnApagar.innerText = 'Apagar notícia';
-    btnApagar.classList.add('btnApagar')
-    btnApagar.setAttribute('title','Apagar conteúdo da matéria e título')
-    return btnApagar;
+    let buttonDelete = document.createElement('button')
+    buttonDelete.innerText = 'Apagar notícia';
+    buttonDelete.classList.add('btnDelete')
+    buttonDelete.setAttribute('title','Apagar matéria completa')
+    return buttonDelete;
 };
 
 function createDiv() {
 
     let div = document.createElement('div')
-    div.classList.add('insercaoDivImg')
+    div.classList.add('insertedDivImg')
     return div;
 };
 
 function createDivVideo() {
 
     let div = document.createElement('div')
-    div.classList.add('insercaoDivVideo')
+    div.classList.add('insertedDivVideo')
     return div;
 };
 
 function createImg() {
     let img = document.createElement('img')
-    img.classList.add('insercaoImg')
+    img.classList.add('insertedImg')
     return img;
 };
 
 function createP() {
 
     let p = document.createElement('p')
-    p.classList.add('insercaoConteudo')
+    p.classList.add('insertedMaterials')
     return p;
 };
 
 function saveNews() {
 
-    const h1sTitles = section2El.querySelectorAll('.insercaoTitulo')
+    const h1sTitles = containerInsertedNewsEl.querySelectorAll('.insertedTitle')
 
     const arrayAllTitles = [];
         for(let h1Title of h1sTitles) {
@@ -166,7 +168,7 @@ function saveNews() {
     const h1sTitlesJSON = JSON.stringify(arrayAllTitles)
         localStorage.setItem('h1sTitles', h1sTitlesJSON)
 
-    const psMatters = section2El.querySelectorAll('.insercaoConteudo')
+    const psMatters = containerInsertedNewsEl.querySelectorAll('.insertedMaterials')
 
     const arrayAllMatters = [];
         for(let pMatter of psMatters) {
@@ -177,7 +179,7 @@ function saveNews() {
     const psMattersJSON = JSON.stringify(arrayAllMatters)
         localStorage.setItem('psMatters', psMattersJSON)
 
-    const imgs = section2El.querySelectorAll('.insercaoImg')
+    const imgs = containerInsertedNewsEl.querySelectorAll('.insertedImg')
 
     const arrayAllImgs = [];
         for(let img of imgs) {
@@ -189,7 +191,7 @@ function saveNews() {
         localStorage.setItem('imgs', imgsJSON )
 
 
-    const videos = section2El.querySelectorAll('.insercaoDivVideo');
+    const videos = containerInsertedNewsEl.querySelectorAll('.insertedDivVideo');
         
     const arrayAllVideos = [];
         for(let video of videos) {
@@ -216,9 +218,8 @@ function addSavedNews() {
     const arrayAllVideos = JSON.parse(videos)
 
         for (let i= 0;i < arrayAllTitles.length; i++) {
-            insereTituloConteudo(arrayAllTitles[i],arrayAllMatters[i],arrayAllImgs[i],arrayAllVideos[i]);
+            insertCompleteNews(arrayAllTitles[i],arrayAllMatters[i],arrayAllImgs[i],arrayAllVideos[i]);
         }
 };
     
-
-inicializaFuncoes();
+initializeFunctions()

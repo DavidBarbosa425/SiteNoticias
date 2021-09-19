@@ -40,7 +40,7 @@ header > h1:hover{
     text-align: center;
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);
     background-image: linear-gradient(45deg, rgba(75, 73, 73, 0.952), #fff);
-    color: black;
+    color: red;
     box-shadow: 5px 5px 5px #1b1b1b;
     font-size: 5.5em; 
 }
@@ -76,14 +76,11 @@ nav > a:hover {
     text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.705);  
 }
 
-.insertNews {
-    margin: auto;
-    margin-top: 20px;
-    margin-bottom: 0px;
-    padding: 20px;
+.insertedNews {
+    margin-bottom: 80px;
 }
 
-.insercaoTitulo {
+.insertedTitle {
     margin: 10px auto 10px auto;
     padding: 10px;
     background-image: linear-gradient(45deg, black, red);
@@ -93,47 +90,53 @@ nav > a:hover {
     font-size: 2em;
 }
 
-.insercaoDivImg {
+.insertedDivImg {
     width: 560px;
     height: 315px;
     margin: 30px auto;  
 }
 
-.insercaoImg {
+.insertedImg {
     width: 560px;
     height: 315px;
     border: 5px solid black;
 }
 
-.insercaoConteudo{
+.insertedMaterials{
     background-image: linear-gradient(45deg, rgba(75, 73, 73, 0.952), #fff);
     margin: 10px auto 10px auto;
     padding: 10px;
 }
 
-.insercaoDivVideo {
+.insertedDivVideo {
     width: 560px;
     height: 315px;
     margin: 30px auto;
     border: 5px solid black;
 }
 
-.news {
+.btnDelete, .btnTitle, .btnNews, .btnImg, .btnVideo{
+    border-radius: 5px;
+    background-image: linear-gradient(45deg, rgba(75, 73, 73, 0.952), #fff);
+}
+
+.btnDelete:hover, .btnTitle:hover, .btnNews:hover, .btnImg:hover, .btnVideo:hover{
+    background-image: linear-gradient(45deg, black, red);
+    color: white;
+    font-size: 1.2em;
+}
+
+.writeYourNews {
     margin: 15px auto 15px;
     padding: 20px;
     background-image: linear-gradient(45deg, rgba(75, 73, 73, 0.952), #fff);
     box-shadow: 5px 5px 5px #867b7b;
 }
 
-.btnApagar, .btnTitulo, .btnConteudo, .btnImg, .btnVideo{
-    border-radius: 5px;
-    background-image: linear-gradient(45deg, rgba(75, 73, 73, 0.952), #fff);
-}
-
-.btnApagar:hover, .btnTitulo:hover, .btnConteudo:hover, .btnImg:hover, .btnVideo:hover{
-    background-image: linear-gradient(45deg, black, red);
-    color: white;
-    font-size: 1.2em;
+#hour {
+    text-align: center;
+    font-size: 2em;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.801);
 }
 
 footer {
@@ -141,10 +144,4 @@ footer {
     padding: 20px;
     background-image: linear-gradient(45deg, black, red);
     color: #fff;
-}
-
-#hour {
-    text-align: center;
-    font-size: 2em;
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.801);
 }
