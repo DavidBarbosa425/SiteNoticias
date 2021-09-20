@@ -151,7 +151,7 @@ function createImg() {
 function createP() {
 
     let p = document.createElement('p')
-    p.classList.add('insertedMaterials')
+    p.classList.add('insertedTextNews')
     return p;
 };
 
@@ -168,7 +168,7 @@ function saveNews() {
     const h1sTitlesJSON = JSON.stringify(arrayAllTitles)
         localStorage.setItem('h1sTitles', h1sTitlesJSON)
 
-    const psMatters = containerInsertedNewsEl.querySelectorAll('.insertedMaterials')
+    const psMatters = containerInsertedNewsEl.querySelectorAll('.insertedTextNews')
 
     const arrayAllMatters = [];
         for(let pMatter of psMatters) {
