@@ -157,68 +157,68 @@ function createP() {
 
 function saveNews() {
 
-    const h1sTitles = containerInsertedNewsEl.querySelectorAll('.insertedTitle')
+    let titles = containerInsertedNewsEl.querySelectorAll('.insertedTitle')
 
-    const arrayAllTitles = [];
-        for(let h1Title of h1sTitles) {
-            let h1TitleText = h1Title.innerText.trim();
-            arrayAllTitles.push(h1TitleText)
+    let arrayAllTitles = [];
+        for(let title of titles) {
+            let titleText = title.innerText.trim();
+            arrayAllTitles.push(titleText)
         } 
         
-    const h1sTitlesJSON = JSON.stringify(arrayAllTitles)
-        localStorage.setItem('h1sTitles', h1sTitlesJSON)
+    let titlesJSON = JSON.stringify(arrayAllTitles)
+        localStorage.setItem('titles', titlesJSON)
 
-    const psMatters = containerInsertedNewsEl.querySelectorAll('.insertedTextNews')
+    let News = containerInsertedNewsEl.querySelectorAll('.insertedTextNews')
 
-    const arrayAllMatters = [];
-        for(let pMatter of psMatters) {
-            let pMatterText = pMatter.innerText.trim();
-            arrayAllMatters.push(pMatterText)
+    let arrayAllNews = [];
+        for(let news of News) {
+            let newsText = news.innerText.trim();
+            arrayAllNews.push(newsText)
         }
     
-    const psMattersJSON = JSON.stringify(arrayAllMatters)
-        localStorage.setItem('psMatters', psMattersJSON)
+    let NewsJSON = JSON.stringify(arrayAllNews)
+        localStorage.setItem('News', NewsJSON)
 
-    const imgs = containerInsertedNewsEl.querySelectorAll('.insertedImg')
+    let imgs = containerInsertedNewsEl.querySelectorAll('.insertedImg')
 
-    const arrayAllImgs = [];
+    let arrayAllImgs = [];
         for(let img of imgs) {
             let imgLink = img.src
             arrayAllImgs.push(imgLink)
         }
     
-    const imgsJSON = JSON.stringify(arrayAllImgs)
+    let imgsJSON = JSON.stringify(arrayAllImgs)
         localStorage.setItem('imgs', imgsJSON )
 
 
-    const videos = containerInsertedNewsEl.querySelectorAll('.insertedDivVideo');
+    let videos = containerInsertedNewsEl.querySelectorAll('.insertedDivVideo');
         
-    const arrayAllVideos = [];
+    let arrayAllVideos = [];
         for(let video of videos) {
             let videoLink = video.innerHTML
             arrayAllVideos.push(videoLink)
         }
             
-    const videosJSON = JSON.stringify(arrayAllVideos)
+    let videosJSON = JSON.stringify(arrayAllVideos)
         localStorage.setItem('videos', videosJSON )
 };
  
 function addSavedNews() {
 
-    const h1sTitles = localStorage.getItem('h1sTitles');
-    const arrayAllTitles = JSON.parse(h1sTitles);
+    let titles = localStorage.getItem('titles');
+    let arrayAllTitles = JSON.parse(titles);
 
-    const psMatters = localStorage.getItem('psMatters');
-    const arrayAllMatters = JSON.parse(psMatters);
+    let News = localStorage.getItem('News');
+    let arrayAllNews = JSON.parse(News);
 
-    const imgs = localStorage.getItem('imgs');
-    const arrayAllImgs = JSON.parse(imgs)
+    let imgs = localStorage.getItem('imgs');
+    let arrayAllImgs = JSON.parse(imgs)
 
-    const videos = localStorage.getItem('videos');
-    const arrayAllVideos = JSON.parse(videos)
+    let videos = localStorage.getItem('videos');
+    let arrayAllVideos = JSON.parse(videos)
 
         for (let i= 0;i < arrayAllTitles.length; i++) {
-            insertCompleteNews(arrayAllTitles[i],arrayAllMatters[i],arrayAllImgs[i],arrayAllVideos[i]);
+            insertCompleteNews(arrayAllTitles[i],arrayAllNews[i],arrayAllImgs[i],arrayAllVideos[i]);
         }
 };
     
